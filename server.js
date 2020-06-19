@@ -12,7 +12,8 @@ const app = express();
 
 const port = process.env.SERVER_PORT || 5000;
 
-const db = "mongodb+srv://krewzer:root@cluster0-r6yin.mongodb.net/collection0?retryWrites=true&w=majority";
+const db =
+  "mongodb+srv://krewzer:root@cluster0-r6yin.mongodb.net/collection0?retryWrites=true&w=majority";
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -56,7 +57,7 @@ app.get("/api/delivery", (req, res) => {
 //app.use(checkJwt);
 
 app.post("/api/delreq", (req, res) => {
-  console.log(req)
+  // console.log(req)
   const task = new Task({
     type: req.body.type,
     details: req.body.details,
@@ -70,6 +71,22 @@ app.post("/api/delreq", (req, res) => {
     .save()
     .then((result) => res.status(200).json({ result }))
     .catch((err) => console.log(err) && res.status(500).json({ error: err }));
+});
+
+app.put("/api/assign", (req, res) => {
+  Task.findByIdAndUpdate(
+    req.body.id,
+    { status: 1, volunteer: req.body.volunteer },
+    { returnOriginal: false }
+  ).then((tasks) => res.send(tasks));
+});
+
+app.put("/api/complete", (req, res) => {
+  Task.findByIdAndUpdate(
+    req.body.id,
+    { status: 2 },
+    { returnOriginal: false }
+  ).then((tasks) => res.send(tasks));
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
