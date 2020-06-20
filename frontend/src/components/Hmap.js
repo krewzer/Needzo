@@ -19,7 +19,6 @@ export const HMap = (props) => {
   const [modal, setModal] = useState(false);
   const [details, setDetails] = useState({});
 
-
   const toggle = () => setModal(!modal);
 
   React.useLayoutEffect(() => {
@@ -49,30 +48,19 @@ export const HMap = (props) => {
             let item = result.items[0];
             const currentGroup = new H.map.Group();
             map.addObject(currentGroup);
-            // console.log(item);
             map.setCenter(item.position);
             const currentMarker = new H.map.Marker(item.position);
-            // console.log(item);
-            // currentMarker.setData(ele);
             currentGroup.addObject(currentMarker);
-            currentGroup.addEventListener(
-              "tap",
-               async () => {
-                await setDetails({details: ele});
-                console.log(ele)
-                console.log(details)
-                setModal(!modal)
-                
-              }
-            );
-
-
+            currentGroup.addEventListener("tap", () => {
+              setDetails(ele);
+              setModal(!modal);
+            });
           },
           alert
         )
       );
     };
-  
+
     console.log(props.data);
     addMarkerfromData(platform, props.data);
 
@@ -80,54 +68,54 @@ export const HMap = (props) => {
       map.dispose();
     };
   }, [mapRef, props.data]);
-  
+
   return (
-  <div>
-  <div className="map" ref={mapRef} style={{ height: "500px" }} />
-  <Modal
-              isOpen={modal}
-              toggle={toggle}
-              contentClassName="custom-modal-style"
-              labelledBy="request"
-            >
-              <ModalHeader toggle={toggle}>
-                Help others by Volunteering
-              </ModalHeader>
-              <ModalBody>
-                <Container className="text-left">
-                  <Row>
-                    <Col xs="12" sm="6">
-                      <br />
-                      <h3> Deliver To :</h3>
-                      <br />
-                      
-                      <br />
-                      <h3>Details :</h3>
-                      <br />
-                      <br />
-                      <h3>Address :</h3>
-                    </Col>
-                    <Col xs="12" sm="6">
-                      <img
-                        src={require("../assets/groceries.png")}
-                        alt="logo"
-                        height="90%"
-                        width="100%"
-                        style={{ marginLeft: 20 }}
-                      />
-                      <center>
-                        <h3> Groceries</h3>
-                      </center>
-                    </Col>
-                  </Row>
-                </Container>
-              </ModalBody>
-              <ModalFooter>
-                
-                <Button color="danger" onClick={toggle}>
-                  Cancel
-                </Button>
-              </ModalFooter>
-            </Modal>
+    <div>
+      <div className="map" ref={mapRef} style={{ height: "500px" }} />
+      <Modal
+        isOpen={modal}
+        toggle={toggle}
+        contentClassName="custom-modal-style"
+        labelledBy="request"
+      >
+        <ModalHeader toggle={toggle}>Help others by Volunteering</ModalHeader>
+        <ModalBody>
+          <Container className="text-left">
+            <Row>
+              <Col xs="12" sm="6">
+                <br />
+                <h3> Deliver To :</h3>
+                {details.requester?.name}
+                <br />
+                <br />
+                <h3>Details :</h3>
+                {details.details}
+                <br />
+                <br />
+                <h3>Address :</h3>
+                {details.deliveryAddress}
+              </Col>
+              <Col xs="12" sm="6">
+                <img
+                  src={require("../assets/groceries.png")}
+                  alt="logo"
+                  height="90%"
+                  width="100%"
+                  style={{ marginLeft: 20 }}
+                />
+                <center>
+                  <h3> Groceries</h3>
+                </center>
+              </Col>
+            </Row>
+          </Container>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="danger" onClick={toggle}>
+            Cancel
+          </Button>
+        </ModalFooter>
+      </Modal>
     </div>
-  )};
+  );
+};
