@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import '../sidebar.css'
 import { Button } from "reactstrap";
 const Dashboard = () => (
@@ -68,5 +69,28 @@ const Dashboard = () => (
     <Button color="info">Click me</Button>
   </div>
 );
+=======
+import { HMap } from "../components/Hmap";
+
+const Dashboard = () => {
+  const API_URL = "http://localhost:5000/api/delivery";
+  const [data, setData] = React.useState([]);
+  React.useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    const response = await fetch(API_URL);
+    const res = await response.json();
+    setData(res);
+    console.log(res);
+  };
+  return (
+    <div className="bg-light p-3 text-center">
+      <HMap data={data} />
+    </div>
+  );
+};
+>>>>>>> b500c4163cdd1aa687523c734a50575271b90f74
 
 export default Dashboard;
