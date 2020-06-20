@@ -12,14 +12,27 @@ import {
   ModalFooter,
 } from "reactstrap";
 import "../App.css";
+import {Link} from 'react-router-dom'
 
 export const HMap = (props) => {
   const mapRef = React.useRef(null);
 
   const [modal, setModal] = useState(false);
+  const [nestedModal, setNestedModal] = useState(false);
+  const [closeAll, setCloseAll] = useState(false);
+
   const [details, setDetails] = useState({});
 
+
   const toggle = () => setModal(!modal);
+  const toggleNested = () => {
+    setNestedModal(!nestedModal);
+    setCloseAll(false);
+  }
+  const toggleAll = () => {
+    setNestedModal(!nestedModal);
+    setCloseAll(true);
+  }
 
   React.useLayoutEffect(() => {
     if (!mapRef.current) return;
@@ -94,6 +107,7 @@ export const HMap = (props) => {
                 <br />
                 <h3>Address :</h3>
                 {details.deliveryAddress}
+                
               </Col>
               <Col xs="12" sm="6">
                 <img
@@ -111,7 +125,22 @@ export const HMap = (props) => {
           </Container>
         </ModalBody>
         <ModalFooter>
-          <Button color="danger" onClick={toggle}>
+        <Button color="info" size="lg" onClick={toggleNested}>Help In delivery</Button>
+          <Modal isOpen={nestedModal} toggle={toggleNested} onClosed={closeAll ? toggle : undefined}>
+            <ModalHeader>Thanks for helping Out</ModalHeader>
+            <ModalBody><h3>Contact Information : </h3>
+            <br /> 
+            Recipient name, address, and contact info will be shared after accepting the delivery.
+            </ModalBody>
+            <ModalFooter>
+            <Link to={{pathname: '/my-deliveries',
+                  state:{ details:{}
+
+                  }}} > <Button color="info" >Confirm</Button> </Link>
+              <Button color="danger" onClick={toggleNested}>Cancel</Button>
+            </ModalFooter>
+          </Modal>
+          <Button color="danger" size="lg" onClick={toggle}>
             Cancel
           </Button>
         </ModalFooter>

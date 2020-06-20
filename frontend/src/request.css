@@ -76,7 +76,8 @@
     }
 
     [type=radio]:checked + img {
-        box-shadow: 0 0 0 4px ;
+        box-shadow: 0 0 0 4px teal;
+        
     }
 
     .radio-img {
@@ -152,4 +153,7 @@
         position: absolute;
         font-weight: 500;
     }
+}
+#exampleEmail{
+    width:100%;
 }

@@ -31,12 +31,15 @@ const VolunteerModal = () => {
             <Container className="text-left">
               <Row>
                 <Col xs="12" sm="6">
+                  <h5>
                   <br />
-                  Sign up and browse delivery requests from neighbors nearby.
+                  1.  Sign up and browse delivery requests from neighbors nearby by clicking on the marker on the map.
                   <br /> <br />
-                  Once you've claimed a delivery, we'll share your neighbor's
+                  <br /> <br />
+                  2. Once you've claimed a delivery, we'll share your neighbor's
                   contact information so you can get in touch.
                   <br /> <br />
+                  </h5>
                 </Col>
                 <Col xs="12" sm="6">
                   <img

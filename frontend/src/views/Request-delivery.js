@@ -70,7 +70,7 @@ const Request = () => {
                   <Field type="radio" name="tasktype" value="Food" />
                   <img
                     className="radio-img"
-                    src={require("../assets/helping-hand.jpg")}
+                    src={require("../assets/groceries_peach_circle.png")}
                     height="100"
                     width="100"
                     alt="grocery-pic"
@@ -81,7 +81,7 @@ const Request = () => {
                   <Field type="radio" name="tasktype" value="Medicine" />
                   <img
                     className="radio-img"
-                    src={require("../assets/helping-hand.jpg")}
+                    src={require("../assets/medicine_peach_circle.png")}
                     alt="medicine-pic"
                   />
                   <div className="task-type-label">Medicine</div>
@@ -90,13 +90,14 @@ const Request = () => {
                   <Field type="radio" name="tasktype" value="Other" />
                   <img
                     className="radio-img"
-                    src={require("../assets/helping-hand.jpg")}
+                    src={require("../assets/other_peach_circle.png")}
                     alt="other-pic"
                   />
                   <div className="task-type-label">Other</div>
                 </label>
               </div>
             </div>
+            <br /> <br />
             <div className="task-form-group">
               <Label className="task-form-label">
                 Where is this being delivered to?
@@ -131,6 +132,7 @@ const Request = () => {
               <Label className="task-form-label">
                 Please provide additional delivery instructions
               </Label>
+              <br />
               <Field
                 type="textarea"
                 name="addon"
@@ -142,7 +144,7 @@ const Request = () => {
           <ErrorMessage name="email" component="div" />
           <Field type="password" name="password" />
           <ErrorMessage name="password" component="div" /> */}
-            <Button type="submit" color="info" disabled={isSubmitting}>
+            <Button type="submit" color="info" size="lg" disabled={isSubmitting}>
               Request delivery
             </Button>
           </Form>

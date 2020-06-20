@@ -25,25 +25,32 @@ const RequestModal = () => {
         toggle={toggle}
         contentClassName="custom-modal-style"
         labelledBy="request"
+      
       >
         <ModalHeader toggle={toggle}>How To Request A Delivery</ModalHeader>
         <ModalBody>
           <Container className="text-left">
             <Row>
               <Col xs="12" sm="6">
+                <h5 color="blue">
                 <br />
-                Log in, select 'Request a Delivery', and fill out the form.
+                <br />
+              
+               1. Log in, select 'Request a Delivery', and fill out the form.
                 <br />
                 <br />
-                You'll be notified once a neighbor volunteers to deliver your
+                <br />
+                <br />
+               2. You'll be notified once a neighbor volunteers to deliver your
                 items.
+                </h5>
               </Col>
               <Col xs="12" sm="6">
                 <img
-                  src={require("../assets/covid.svg")}
+                  src={require("../assets/request.png")}
                   alt="logo"
-                  height="90%"
-                  width="100%"
+                  height="80%"
+                  width="80%"
                   style={{ marginLeft: 20 }}
                 />
               </Col>
@@ -56,12 +63,13 @@ const RequestModal = () => {
               id="qsLoginBtn"
               color="info"
               className="btn-margin"
+              size="lg"
               onClick={() => loginWithRedirect({})}
             >
               Log in
             </Button>
           )}
-          <Button color="danger" onClick={toggle}>
+          <Button color="danger" onClick={toggle} size="lg">
             Cancel
           </Button>
         </ModalFooter>

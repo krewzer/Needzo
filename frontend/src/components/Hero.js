@@ -30,6 +30,7 @@ const Hero = () => {
         <Container className="text-left">
           <Row>
             <Col xs="12" sm="6">
+              <h5>
               <br />
               Self-isolating and need something?
               <br />
@@ -46,6 +47,7 @@ const Hero = () => {
               <br />
               <br />
               <br />
+              </h5>
               <Container>
                 <Row>
                   <RequestModal />

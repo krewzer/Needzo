@@ -37,7 +37,27 @@
   height: 60vh;
   }
 
-
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: space-evenly;
+  }
+  .deliveryclass{
+    height: 200px;
+    width:200px;
+  }
+  #card{
+    height: 400px;
+    width:350px;
+    background-color: #fce8ff;
+  }
+  .cardimg{
+    position: relative;
+    left: 177px;
+    top: -264px;
+  }
 
 
 
