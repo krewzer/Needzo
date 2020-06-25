@@ -7,25 +7,28 @@ import VolunteerModal from "./VolunteerModal";
 const Hero = () => {
   return (
     <div>
-      <div className="text-center hero my-5">
+      <div className="flex">
+      <div className="text-center ">
         <img
           src={require("../assets/helping-hand.jpg")}
           alt="logo"
-          height="100"
-          width="100"
+          height="300"
+          width="300"
           style={{ marginLeft: 20 }}
         />
-        <h1 className="mb-4">Helping Hand</h1>
-
-        <Alert color="primary">
-          Helping Hand connect users to others people in need within their local
-          community.
+        <h1 className="mb-4">NEEDZO - Enabling Technology to fulfill the needs.</h1>
+        <Alert color="primary" className="text-center hero my-5">
+          NEEDZO connect elderly/physically cahllenged vulnerable people to Volunteers ready to help in their community.
         </Alert>
+        <div>
+
+        </div>
+      </div>
       </div>
       <hr />
-      <div className="text-center" style={{ backgroundColor: "#fce8ff" }}>
+      <div className="text-center" style={{ backgroundColor: "" }}>
         <br />
-        <h2> Welcome! Read below to learn how Helping Hands works. </h2>
+        <h2> Welcome! Read below to learn how NEEDZO works. </h2>
         <br />
         <Container className="text-left">
           <Row>
@@ -41,7 +44,7 @@ const Hero = () => {
               Want to help your neighbors?
               <br />
               <br />
-              Sign up and deliver essential items to quarantined people nearby.
+              Sign up and deliver essential items to physically challenged people nearby.
               <br />
               <br />
               <br />
@@ -58,7 +61,7 @@ const Hero = () => {
 
             <Col xs="12" sm="6">
               <img
-                src={require("../assets/covid.svg")}
+                src={require("../assets/request.jpg")}
                 alt="logo"
                 height="90%"
                 width="90%"

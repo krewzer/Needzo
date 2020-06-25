@@ -1,6 +1,6 @@
-# Helping Hand
+# NEEDZO
 
-Helping Hand connect users to others people in need within their local community.
+NEEDZO connect users to others people in need within their local community.
 
 ## Project setup
 

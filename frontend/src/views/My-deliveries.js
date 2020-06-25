@@ -50,7 +50,7 @@ const Deliveries = (props) => {
   </div>
   <br /> <br />
   <Alert color="info" isOpen={visible} toggle={onDismiss}>
-      <center> <h2>Thank You For Choosing Helping Hands.</h2> </center> 
+      <center> <h2>Thank You For Choosing Needzo.</h2> </center> 
     </Alert>
   </div>
 );

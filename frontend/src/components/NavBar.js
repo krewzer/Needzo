@@ -36,8 +36,8 @@ const NavBar = () => {
           <img
             src={require("../assets/helping-hand.jpg")}
             alt="logo"
-            height="50"
-            width="50"
+            height="100"
+            width="100"
             style={{ marginLeft: 20 }}
           />{" "}
           &nbsp; &nbsp; &nbsp;

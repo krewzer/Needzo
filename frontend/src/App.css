@@ -59,7 +59,13 @@
     top: -264px;
   }
 
-
+.content{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-content: space-evenly;
+}
 
 
 

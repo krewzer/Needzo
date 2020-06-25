@@ -43,10 +43,10 @@ const VolunteerModal = () => {
                 </Col>
                 <Col xs="12" sm="6">
                   <img
-                    src={require("../assets/covid.svg")}
+                    src={require("../assets/delivery.png")}
                     alt="logo"
                     height="90%"
-                    width="100%"
+                    width="80%"
                     style={{ marginLeft: 20 }}
                   />
                 </Col>
