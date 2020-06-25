@@ -34,7 +34,7 @@ const NavBar = () => {
       <Navbar color="light" light expand="md">
         <Container>
           <img
-            src={require("../assets/helping-hand.jpg")}
+            src={require("../assets/helping-hand.png")}
             alt="logo"
             height="100"
             width="100"

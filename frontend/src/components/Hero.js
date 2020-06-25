@@ -8,22 +8,23 @@ const Hero = () => {
   return (
     <div>
       <div className="flex">
-      <div className="text-center ">
-        <img
-          src={require("../assets/helping-hand.jpg")}
-          alt="logo"
-          height="300"
-          width="300"
-          style={{ marginLeft: 20 }}
-        />
-        <h1 className="mb-4">NEEDZO - Enabling Technology to fulfill the needs.</h1>
-        <Alert color="primary" className="text-center hero my-5">
-          NEEDZO connect elderly/physically cahllenged vulnerable people to Volunteers ready to help in their community.
-        </Alert>
-        <div>
-
+        <div className="text-center ">
+          <img
+            src={require("../assets/request.jpg")}
+            alt="logo"
+            height="300"
+            width="auto"
+            style={{ marginLeft: 20 }}
+          />
+          <h1 className="mb-4">
+            NEEDZO - Enabling Technology to fulfill the needs.
+          </h1>
+          <Alert color="primary" className="text-center hero my-5">
+            NEEDZO connect elderly/physically cahllenged vulnerable people to
+            Volunteers ready to help in their community.
+          </Alert>
+          <div></div>
         </div>
-      </div>
       </div>
       <hr />
       <div className="text-center" style={{ backgroundColor: "" }}>
@@ -34,22 +35,23 @@ const Hero = () => {
           <Row>
             <Col xs="12" sm="6">
               <h5>
-              <br />
-              Self-isolating and need something?
-              <br />
-              <br />
-              Request a delivery from a local volunteer.
-              <br />
-              <br />
-              Want to help your neighbors?
-              <br />
-              <br />
-              Sign up and deliver essential items to physically challenged people nearby.
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
+                <br />
+                Self-isolating and need something?
+                <br />
+                <br />
+                Request a delivery from a local volunteer.
+                <br />
+                <br />
+                Want to help your neighbors?
+                <br />
+                <br />
+                Sign up and deliver essential items to physically challenged
+                people nearby.
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
               </h5>
               <Container>
                 <Row>
@@ -61,10 +63,10 @@ const Hero = () => {
 
             <Col xs="12" sm="6">
               <img
-                src={require("../assets/request.jpg")}
+                src={require("../assets/helping-hand.png")}
                 alt="logo"
-                height="90%"
-                width="90%"
+                height="70%"
+                width="auto"
                 style={{ marginLeft: 20 }}
               />
             </Col>
