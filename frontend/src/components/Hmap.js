@@ -1,5 +1,3 @@
-// src/DisplayMapFC.js
-
 import React, { useState } from "react";
 import {
   Container,
@@ -12,7 +10,9 @@ import {
   ModalFooter,
 } from "reactstrap";
 import "../App.css";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import { useAuth0 } from "../react-auth0-spa";
+import Axios from "axios";
 
 export const HMap = (props) => {
   const mapRef = React.useRef(null);
@@ -23,16 +23,17 @@ export const HMap = (props) => {
 
   const [details, setDetails] = useState({});
 
-
   const toggle = () => setModal(!modal);
   const toggleNested = () => {
     setNestedModal(!nestedModal);
     setCloseAll(false);
-  }
+  };
   const toggleAll = () => {
     setNestedModal(!nestedModal);
     setCloseAll(true);
-  }
+  };
+
+  const API_URL = "http://localhost:5000/api/assign";
 
   React.useLayoutEffect(() => {
     if (!mapRef.current) return;
@@ -82,6 +83,17 @@ export const HMap = (props) => {
     };
   }, [mapRef, props.data]);
 
+  const { user } = useAuth0();
+  const handleSubmit = (user, details) => {
+    console.log("deta", details);
+    let id = details._id;
+    const volunteer = {
+      name: user?.name,
+      email: user?.email,
+    };
+    Axios.put(API_URL, { id, volunteer }).then((log) => console.log(log));
+  };
+
   return (
     <div>
       <div className="map" ref={mapRef} style={{ height: "500px" }} />
@@ -107,7 +119,6 @@ export const HMap = (props) => {
                 <br />
                 <h3>Address :</h3>
                 {details.deliveryAddress}
-                
               </Col>
               <Col xs="12" sm="6">
                 <img
@@ -125,19 +136,31 @@ export const HMap = (props) => {
           </Container>
         </ModalBody>
         <ModalFooter>
-        <Button color="info" size="lg" onClick={toggleNested}>Help In delivery</Button>
-          <Modal isOpen={nestedModal} toggle={toggleNested} onClosed={closeAll ? toggle : undefined}>
+          <Button color="info" size="lg" onClick={toggleNested}>
+            Help In delivery
+          </Button>
+          <Modal
+            isOpen={nestedModal}
+            toggle={toggleNested}
+            onClosed={closeAll ? toggle : undefined}
+          >
             <ModalHeader>Thanks for helping Out</ModalHeader>
-            <ModalBody><h3>Contact Information : </h3>
-            <br /> 
-            Recipient name, address, and contact info will be shared after accepting the delivery.
+            <ModalBody>
+              <h3>Contact Information : </h3>
+              <br />
+              Recipient name, address, and contact info will be shared after
+              accepting the delivery.
             </ModalBody>
             <ModalFooter>
-            <Link to={{pathname: '/my-deliveries',
-                  state:{ details:{}
-
-                  }}} > <Button color="info" >Confirm</Button> </Link>
-              <Button color="danger" onClick={toggleNested}>Cancel</Button>
+              <Link to={{ pathname: "/my-deliveries" }}>
+                {" "}
+                <Button color="info" onClick={handleSubmit(user, details)}>
+                  Confirm
+                </Button>{" "}
+              </Link>
+              <Button color="danger" onClick={toggleNested}>
+                Cancel
+              </Button>
             </ModalFooter>
           </Modal>
           <Button color="danger" size="lg" onClick={toggle}>

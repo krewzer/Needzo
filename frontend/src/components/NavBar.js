@@ -24,6 +24,7 @@ const NavBar = () => {
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const toggle = () => setIsOpen(!isOpen);
 
+
   const logoutWithRedirect = () =>
     logout({
       returnTo: window.location.origin,
@@ -90,8 +91,22 @@ const NavBar = () => {
                   </NavLink>
                 </NavItem>
               )}
+               {isAuthenticated && (
+                <NavItem>
+                  <NavLink
+                    tag={RouterNavLink}
+                    to="/rchat"
+                    exact
+                    activeClassName="router-link-exact-active"
+                  >
+                    Chat
+                  </NavLink>
+                </NavItem>
+              )}
+             
             </Nav>
             <Nav className="d-none d-md-block" navbar>
+              
               {!isAuthenticated && (
                 <NavItem>
                   <Button
@@ -104,6 +119,7 @@ const NavBar = () => {
                   </Button>
                 </NavItem>
               )}
+              
               {isAuthenticated && (
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret id="profileDropDown">

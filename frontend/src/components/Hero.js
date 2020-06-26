@@ -20,8 +20,8 @@ const Hero = () => {
             NEEDZO - Enabling Technology to fulfill the needs.
           </h1>
           <Alert color="primary" className="text-center hero my-5">
-            NEEDZO connect elderly/physically cahllenged vulnerable people to
-            Volunteers ready to help in their community.
+            NEEDZO connects elderly/physically challenged vulnerable people to
+            volunteers ready to help in their community.
           </Alert>
           <div></div>
         </div>

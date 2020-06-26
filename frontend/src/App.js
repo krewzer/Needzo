@@ -19,6 +19,7 @@ import initFontAwesome from "./utils/initFontAwesome";
 import Dashboard from "./views/Dashboard";
 import Request from "./views/Request-delivery";
 import Deliveries from "./views/My-deliveries";
+import RChat from "./views/RChat";
 initFontAwesome();
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
             <Route path="/dashboard" exact component={Dashboard} />
             <Route path="/request-delivery" exact component={Request} />
             <Route path="/my-deliveries" exact component={Deliveries} />
+            <Route path="/rchat" exact component={RChat} />
             <PrivateRoute path="/profile" component={Profile} />
           </Switch>
         </Container>
